@@ -84,6 +84,13 @@ df %>%
 df %>%
   select(Name = name, January = Jan, sum, everything())
 
+# order data frame
+df %>% 
+  arrange(sum)
+
+df %>% 
+  arrange(desc(sum))
+
 
 ### Summarizing data
 #There are a few different useful ways to summarize the data in a dataframe or tibble. If you want to know everything about the dataframe, then the base function `summary()` is useful. If you would like to have more control to create summary tables, then `dplyr::summarize()` or `dplyr::summarise()` are great. This can be paired with `group_by()` to summarize over specific groups of data.
@@ -206,7 +213,7 @@ d$cyl[1]
 b = 5 
 
 if (b == 5){
-  cat('b = 5 \n')
+  cat('b = 5 \n') # \n is carriage return to end line when printing
 }
 
 if (TRUE){
@@ -227,7 +234,7 @@ if (b == 10){
 }else if (b == 5){
   cat('it worked \n')
 }else{
-  cat('nothing')
+  cat('nothing \n')
 }
 
 ### `dplyr` functions

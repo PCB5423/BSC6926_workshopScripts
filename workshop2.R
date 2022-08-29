@@ -126,10 +126,13 @@ crab = tibble(species = rep('Crab', times = 3),
               catch = c(50, 60, 100),
               effort = c(20, 30, 50))
 
+#Same column names
 rbind(sal,cod)
 
+#Error - Why?
 rbind(sal, crab)
 
+#Advantage of using bind_rows
 bind_rows(sal, cod)
 
 bind_rows(sal, crab)
@@ -149,16 +152,17 @@ left = tibble(name = c('a', 'b', 'c'),
 right = tibble(name = c('a', 'b', 'd', 'e'),
                cals = c(500, 450, 570, 600))
 
+#Indexing by left
 left_join(left, right, by = 'name')
-
+#Indexing by right
 right_join(left, right, by = 'name')
-
+#Commons
 inner_join(left, right, by = 'name')
-
+#All
 full_join(left, right, by = 'name')
 
 # multiple matches
-fish = tibble(species = rep(c('Salmon', 'Cod'),times = 3),
+fish = tibble(species = rep(c('Salmon', 'Cod'),times = 3), #repeating vector 3 times
               year = rep(c(1999,2005,2020), each = 2),
               catch = c(50, 60, 40, 50, 60, 100))
 
@@ -204,8 +208,11 @@ d$cyl
 mtcars$cyl[1]
 d$cyl[1]
 
+#Encourage to look at how indexing lists - It could be tricky!!!
 
-## Conditional statements
+## Conditional statements - Personal knowledge
+#Skip in class
+
 # In programing there are times that if something is true then you want an operation to occur, but not when a condition is not true. 
 # ### Base R
 # These can be done with `if` and `if else` statements in base R. These are written if a condition is true then the operation is done. They can be built upon with `else if` if the first condition is false to do test a second condition. If you want it to be If true and if false do something else then `if` and `else` structure can be used. 
@@ -255,28 +262,29 @@ case_when(x < 6 ~ 'x < 6',
 ##  For loops
 #Another useful tool in programming is `for` loops. For loops repeat a process for a certain number of iterations. These can be useful iterate over a dataset or when using information in a time series. The `for` loop works over the number sequence indicated and does the code within the loop (inside of `{}`) for each number in the sequence. The iteration is typically indicated with `i`, but is just an object that is replaced at the begining of each loop and can be anything.
 
-for(i in 1:10){
-  print(i)
+for(i in 1:10){ #Sequence
+  print(i)      #body
 }
 
+#The iterator could be assigned to any letter or word assigment
 for(turtle in 5:10){
   print(turtle)
 }
 
 for(flower in 1:nrow(iris)){
-  cat('The species for this iteration is ',
-      as.character(iris$Species[flower]), '\n')
+  cat('The species for this iteration is ',     #Adding text per row based on name species
+      as.character(iris$Species[flower]), '\n') #note of importance of "\n
 }
 
-d = seq(1,15, 2)
+d = seq(1,15, 2) #8 elements
 d
 for(i in 1:length(d)){
-  b = d[i] + 1
-  cat('d =',d[i], 'b = d + 1 =', b, '\n' )
+  b = d[i] + 1                            #for each i add 1
+  cat('d =',d[i], 'b = d + 1 =', b, '\n' )#then add string
 }
 
 b = 1:10
-for (i in 2:10){
+for (i in 2:10){    #Call a section of vector to start sequence
   z = b[i] - b[i-1]
   
   cat('z =', z, 'b[i] =', b[i], 'b[i-1] =', b[i-1], '\n')
@@ -284,11 +292,11 @@ for (i in 2:10){
 
 
 start = 10 
-pop = tibble(time = 0:10, n = NA)
+pop = tibble(time = 0:10, n = NA) #Output vector size 10
 pop$n[pop$time == 0] = start
 pop
-for (t in 1:10){
-  growth = rnorm(n =1, mean = 3, sd = 1)
+for (t in 1:10){ #sequence 
+  growth = rnorm(n =1, mean = 3, sd = 1) #extracting random value normal dist
   pop$n[pop$time == t] = growth + pop$n[pop$time == (t-1)]
 }
 pop
@@ -311,7 +319,7 @@ iris %>%
   summarize(mean = mean(Petal.Width),
             n())
 
-## `purr`
+## `purr` = better than apply or lapply family
 # The newest and new standard package with `tidyverse` is `purr` with its set of `map()` functions. Some similarity to `plyr` (and base) and `dplyr` functions but with more consistent names and arguments. Notice that map function can have some specification for the type of output.
 # + `map()` makes a list.
 # + `map_lgl()` makes a logical vector.

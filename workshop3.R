@@ -115,13 +115,13 @@ ggplot(pop, aes(time, Nt))+
 
 
 ## Average growth rate
-# In real populations $N_t/N_{t-1}$ are not constant. We can calculate the yearly $\lambda$ also referred to as the annual growth rate ($R$) which is $$R = N_t/N_{t-1}$$
+# In real populations $N_{t+1}/N_t$ are not constant. We can calculate the yearly $\lambda$ also referred to as the annual growth rate ($R$) which is $$R = N_t/N_{t-1}$$
 #   This can be calculated within a `for` loop
 
 # create column to store data
 pop$R = NA
 for (i in 2:length(pop$time)){
-  pop$R[i] = pop$Nt[i]/pop$Nt[i-1]
+  pop$R[i] = pop$Nt[i+1]/pop$Nt[i]
 }
 pop
 
@@ -141,7 +141,7 @@ ggplot(pop, aes(time, R))+
 # This can also be done in `dpylr`
 
 pop = pop %>% 
-  mutate(R.2 = Nt / lag(Nt))
+  mutate(R.2 = lead(Nt) / Nt)
 
 pop
 # 

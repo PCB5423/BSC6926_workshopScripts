@@ -65,7 +65,7 @@ my_fx2 = function(x,y = 4){
 }
 
 my_fx2(4)
-my_fx2(4/5)
+my_fx2(4,5)
 
 # custom fucntion with true false
 

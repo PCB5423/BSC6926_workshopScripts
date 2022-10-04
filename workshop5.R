@@ -229,7 +229,7 @@ names(n) = c("seed", "seedlings", "tiny", "small", "medium","large")
 # projection with equal probabilities 
 x.eq = stoch.projection(matrices = hudsonia, n0 = n, nreps = 100) %>% 
   as_tibble() %>% 
-  mutate(time = row_number(),
+  mutate(rep = row_number(),
          total = seed + seedlings + tiny + small + medium + large,
          type = 'equal')
 
@@ -238,7 +238,7 @@ x.eq
 # unequal probabilities for projection matrices
 x.uneq = stoch.projection(matrices = hudsonia, n0 = n, nreps = 100, prob = c(0.2, 0.2, 0.2, 0.4))%>% 
   as_tibble() %>% 
-  mutate(time = row_number(),
+  mutate(rep = row_number(),
          total = seed + seedlings + tiny + small + medium + large,
          type = 'unequal')
 
@@ -246,10 +246,9 @@ x.uneq
 
 pop2 = bind_rows(x.eq,x.uneq)
 
-ggplot(pop2, aes(time, total, color = type)) +
-  geom_point() +
-  geom_line(size = 1) +
-  labs(x = 'Time', y = 'Population size', color = NULL) +
+ggplot(pop2, aes(total, fill = type)) +
+  geom_density(alpha = 0.5) +
+  labs(x = 'Ending population size', color = NULL) +
   theme_bw()
 
 

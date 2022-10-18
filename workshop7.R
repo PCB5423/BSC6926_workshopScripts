@@ -119,7 +119,7 @@ b = ggplot(betaDiv, aes(YEAR, beta_a, color = STREAM, group = STREAM))+
   geom_point()+
   geom_line()+
   scale_y_continuous(limits = c(0,10))+
-  labs(x = 'Year', y = expression('Additive'~ alpha ~ 'diversity'), 
+  labs(x = 'Year', y = expression('Additive'~ beta ~ 'diversity'), 
        color = 'Stream')+
   theme_bw()
 

@@ -1,0 +1,33 @@
+Diet,Consumer,Weight 
+Phytoplankton,Zooplankton ,1
+Phytoplankton,Mullet,0.3
+Zooplankton,Mullet,0.7
+Phytoplankton,Anchovy,0.5
+Zooplankton,Anchovy,0.5
+Seagrass detritus,Detrivores,1
+Seagrass detritus,Zoobenthivores,0.1
+Detrivores,Zoobenthivores,0.3
+Macroalgae,Zoobenthivores,0.4
+Epiphytes,Zoobenthivores,0.2
+Macroalgae,Pinfish,0.2
+Zoobenthivores,Pinfish,0.7
+Seagrass detritus,Pinfish,0.1
+Zoobenthivores,Pink shrimp,0.5
+Seagrass detritus,Pink shrimp,0.4
+Zoobenthivores,Mojarra,0.5
+Epiphytes,Mojarra,0.1
+Seagrass detritus,Mojarra,0.5
+Pink shrimp,Seatrout,0.7
+Mojarra,Seatrout,0.2
+Seatrout,Barracuda,0.4
+Mullet,Barracuda,0.4
+Pinfish,Barracuda,0.3
+Barracuda,Shark,0.2
+Seatrout,Shark,0.5
+Pinfish,Shark,0.2
+Mullet,Shark,0.1
+Barracuda,Dolphin,0.1
+Mojarra,Dolphin,0.1
+Seatrout,Dolphin,0.3
+Pinfish,Dolphin,0.3
+Mullet,Dolphin,0.2

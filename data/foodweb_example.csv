@@ -1,0 +1,17 @@
+Taxon,Group,TL
+Phytoplankton,Basal,1
+Macroalgae,Basal,1
+Epiphytes,Basal,1
+Seagrass detritus,Basal,1
+Zooplankton ,Primary Consumers,1.8
+Detrivores,Primary Consumers,1.8
+Zoobenthivores,Primary Consumers,2
+Mullet,Planktivore,2.5
+Anchovy,Planktivore,2.5
+Pink shrimp,Benthivore,2.3
+Pinfish ,Benthivore,2.6
+Mojarra,Benthivore,2.3
+Seatrout,Piscivore,3
+Barracuda,Mesopredator,3.5
+Shark,Apex Predator,4
+Dolphin,Apex Predator,4
